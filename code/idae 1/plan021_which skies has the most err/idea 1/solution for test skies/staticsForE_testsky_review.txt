@@ -1,0 +1,25 @@
+ stats(120,10)=0;
+>> for i=1:120
+s=TestSky{i};
+clear e1;e1=s(:,3);clear e2;e2=s(:,4);
+stats(i,1)=min(e1);stats(i,2)=max(e1);stats(i,1)=stats(i,2)-stats(i,1);
+stats(i,4)=min(e1);stats(i,5)=max(e1);stats(i,6)=stats(i,5)-stats(i,4);
+end
+>> save staticsForE_testsky stats
+
+>> find(stats(1:120,1)>=-0.6608 & stats(1:120,1)<=-0.7296 & stats(1:120,2)>=0.6274 & stats(1:120,2)<=0.7996 & stats(1:120,3)>=1.2882 & stats(1:120,3)<=1.3631 & stats(1:120,4)>=-0.4794 & stats(1:120,4)<=-0.7565 & stats(1:120,5)>=0.5896 & stats(1:120,5)<=0.7311 & stats(1:120,6)>=1.1395 & stats(1:120,6)<=1.3750)
+
+ans =
+
+   Empty matrix: 0-by-1
+
+>>  find(stats(1:100,2)>=min(as(:,2)) & stats(1:100,2)<=max(as(:,2)) & stats(1:100,3)>=min(as(:,3)) & stats(1:100,3)<=max(as(:,3)) & stats(1:100,5)>=min(as(:,5)) & stats(1:100,5)<=max(as(:,5)) & stats(1:100,6)>=min(as(:,6)) & stats(1:100,6)<=max(as(:,6)))
+
+ans =
+
+    20
+    28
+    35
+    45
+    52
+>> 
